@@ -55,6 +55,7 @@ class CatalogDetailViewController: UIViewController {
     }
     
     @IBAction func shareBtnClick(_ sender: Any) {
+        self.dismiss(animated: true, completion: {})
     }
     
     

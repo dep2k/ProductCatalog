@@ -14,7 +14,7 @@ import SDWebImage
 class CatalogListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var products:[Product] = [Product]()
-    let catalogListVM: CatalogListViewModel = CatalogListViewModel(httpClient: HttpClient(session: SessionManager().dataSession))
+    let catalogListVM: CatalogListViewModel = CatalogListViewModel(httpClient: HttpClient(session: SessionManager.instance.dataSession))
     
     @IBOutlet var collectionView: UICollectionView!
     
@@ -35,7 +35,6 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
         self.catalogListVM.searchProducts(searchUrl: EndPoints.searchProducts, onCompletion:  { (error, products) in
             self.view.hideLoader()
             guard let products = products, error == nil else {
-                
                 //Display error alert
                 return;
             }

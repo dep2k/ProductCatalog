@@ -10,12 +10,13 @@ import Foundation
 
 class SessionManager: NSObject, URLSessionDelegate {
     
-  
+    static let instance: SessionManager = SessionManager()
+    
     lazy var dataSession: URLSession = {
         let configuration = URLSessionConfiguration.default
         return URLSession(configuration: configuration, delegate: self, delegateQueue: .main)
     }()
-   
+ 
     //MARK: URLSessinDelegates
     public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?){
         //log message
