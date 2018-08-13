@@ -19,7 +19,7 @@ class ProductCell: UICollectionViewCell {
     public func setData(product: Product){
         
         if let images = product.images , let imageName = images[0].name {
-            let imageStr = "\(EndPoints.imageBaseUrl)\(imageName)"
+            let imageStr = imageName.getImageFullUrlStr()
             self.productImageView.sd_imageTransition = .fade
             self.productImageView.sd_setImage(with: URL(string: imageStr), placeholderImage: nil)
         }

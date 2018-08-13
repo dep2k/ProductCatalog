@@ -8,16 +8,16 @@
 
 import Foundation
 import UIKit
-
+import SDWebImage
 
 class ImageSlider: UIView, UIScrollViewDelegate{
     
     
     var scrollView: UIScrollView!
     var pageControl: UIPageControl!
-     var imageUrls: [String]?
+    var imageUrls: [String]?
     
-    let numPages = 6
+    var numPages = 0
     var pages = [UIView?]()
     var transitioning = false
    
@@ -27,6 +27,8 @@ class ImageSlider: UIView, UIScrollViewDelegate{
     }
     
     func loadImages(_ urls:[String]){
+        self.imageUrls = urls
+        self.numPages = urls.count
         self.setupInitialPages()
     }
     
@@ -36,13 +38,15 @@ class ImageSlider: UIView, UIScrollViewDelegate{
         self.scrollView.delegate = self
         self.scrollView.isPagingEnabled = true
         self.scrollView.isScrollEnabled = true
+        self.scrollView.showsHorizontalScrollIndicator = false
        // self.scrollView.backgroundColor = UIColor.red
         self.addSubview(scrollView)
         
-        self.pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        self.pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         self.addSubview(pageControl)
-        self.pageControl.center = CGPoint(x: self.frame.width/2, y: self.frame.height * 0.8)
-      
+        self.pageControl.center = CGPoint(x: self.frame.width/2, y: self.frame.height * 1.1)
+        self.pageControl.currentPageIndicatorTintColor = UIColor.red
+        self.pageControl.pageIndicatorTintColor = UIColor.lightGray
         
         pages = [UIView?](repeating: nil, count: numPages)
         pageControl.numberOfPages = numPages
@@ -66,13 +70,15 @@ class ImageSlider: UIView, UIScrollViewDelegate{
     
     
     fileprivate func loadPage(_ page: Int) {
+        if (page > self.imageUrls!.count - 1)  {return}
         guard page < numPages && page != -1 else { return }
         
         if pages[page] == nil {
-            if let image = UIImage(named: "\(page + 1)") {
+                let imageStr = self.imageUrls![page]
                 // Load the image from our bundle.
-                let newImageView = UIImageView(image: image)
+                let newImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height * 0.8))
                 newImageView.contentMode = .scaleAspectFit
+                newImageView.sd_setImage(with: URL(string: imageStr), placeholderImage: nil)
                 
                 /**
                  Setup the canvas view to hold the image.
@@ -100,7 +106,7 @@ class ImageSlider: UIView, UIScrollViewDelegate{
                 
                 pages[page] = canvasView
             }
-        }
+        
     }
     
     fileprivate func loadCurrentPages(page: Int) {

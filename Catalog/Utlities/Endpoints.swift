@@ -17,3 +17,9 @@ class EndPoints {
 }
 
 
+extension String {
+    
+    func getImageFullUrlStr() -> String {
+        return "\(EndPoints.imageBaseUrl)\(self)"
+    }
+}

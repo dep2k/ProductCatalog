@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Catalog: Codable{
+struct Catalog: Codable {
     
     let products: [Product]?
     let title: String?
@@ -16,7 +16,7 @@ struct Catalog: Codable{
     let onSaleCount: Int?
     
     
-    enum CodingKeys: String, CodingKey{
+    enum CodingKeys: String, CodingKey {
         
         case products
         case title
@@ -34,7 +34,7 @@ struct Product: Codable {
     let measure: Measure?
     let images: [Images]?
     
-    enum CodingKeys : String, CodingKey{
+    enum CodingKeys : String, CodingKey {
         
         case id
         case name = "title"
@@ -54,7 +54,7 @@ struct Pricing: Codable {
     let savingText: String?
     
     
-    enum CodingKeys : String, CodingKey{
+    enum CodingKeys : String, CodingKey {
         
         case price
         case promoPrice = "promo_price"
@@ -64,7 +64,7 @@ struct Pricing: Codable {
     }
 }
 
-struct Measure: Codable{
+struct Measure: Codable {
     
     let weightOrVol: String?
     let size: Int?
@@ -76,13 +76,13 @@ struct Measure: Codable{
     }
 }
 
-struct Images: Codable{
+struct Images: Codable {
     
     let width: Int?
     let height: Int?
     let name: String?
     
-    enum CodingKeys: String, CodingKey{
+    enum CodingKeys: String, CodingKey {
         
         case width = "w"
         case height = "h"

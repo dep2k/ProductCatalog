@@ -16,6 +16,7 @@ class CatalogDetailViewController: UIViewController {
     @IBOutlet weak var productQuantity: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDesc: UITextView!
+    @IBOutlet weak var imageSlider: ImageSlider!
     
     public var productInfo: Product?
     
@@ -51,6 +52,15 @@ class CatalogDetailViewController: UIViewController {
             if let measure = productInfo.measure, let quantity = measure.weightOrVol{
                 self.productQuantity.text = quantity
             }
+            
+            if let images = productInfo.images {
+                let urlList = images.map { (image) -> String in
+                        return image.name!.getImageFullUrlStr()
+                }
+                
+                self.imageSlider.loadImages(urlList)
+            }
+          
         }
     }
     

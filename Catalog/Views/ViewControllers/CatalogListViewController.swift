@@ -10,7 +10,6 @@ import UIKit
 import SDWebImage
 
 
-
 class CatalogListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var products:[Product] = [Product]()
@@ -53,8 +52,8 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
         if (indexPath.row == self.products.count - 3 * 5 ){
             self.searchProducts()
         }
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         let product = self.products[indexPath.row]
         cell.setData(product: product)
         return cell
