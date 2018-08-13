@@ -12,6 +12,7 @@ import UIKit
 fileprivate let loaderViewTag = 1111
 fileprivate let loaderIndicatorTag = 1112
 
+
 extension UIView {
     
     func showLoader(){

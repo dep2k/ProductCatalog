@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14FB4491CCF85470E160363A /* Pods_Catalog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4C6534703DC26BB7EF49142 /* Pods_Catalog.framework */; };
 		9671439CBA460CCB51434CBC /* Pods_CatalogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341F75C26633974076151579 /* Pods_CatalogTests.framework */; };
+		C06C8B5F2121ED9600B8B5C9 /* ImageSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06C8B5E2121ED9600B8B5C9 /* ImageSlider.swift */; };
 		C083AAF721203DC10018DF30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083AAF621203DC10018DF30 /* AppDelegate.swift */; };
 		C083AAF921203DC10018DF30 /* CatalogListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C083AAF821203DC10018DF30 /* CatalogListViewController.swift */; };
 		C083AAFE21203DC70018DF30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C083AAFD21203DC70018DF30 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		40A785607BF6A6A587C22AAB /* Pods-Catalog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.release.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.release.xcconfig"; sourceTree = "<group>"; };
 		B4C6534703DC26BB7EF49142 /* Pods_Catalog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Catalog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCE512CC815C1C7391CB8B37 /* Pods-Catalog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Catalog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Catalog/Pods-Catalog.debug.xcconfig"; sourceTree = "<group>"; };
+		C06C8B5E2121ED9600B8B5C9 /* ImageSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSlider.swift; sourceTree = "<group>"; };
 		C083AAF321203DC10018DF30 /* Catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C083AAF621203DC10018DF30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C083AAF821203DC10018DF30 /* CatalogListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogListViewController.swift; sourceTree = "<group>"; };
@@ -95,17 +97,59 @@
 				341F75C26633974076151579 /* Pods_CatalogTests.framework */,
 			);
 			name = Frameworks;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C06C8B592121EC7600B8B5C9 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				C083AAF421203DC10018DF30 /* Products */,
+				D4F06367D23F25C0D26FFA16 /* Pods */,
+				9687F1713BE5D24F4CB7F731 /* Frameworks */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		C06C8B5A2121ED1C00B8B5C9 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C06C8B5E2121ED9600B8B5C9 /* ImageSlider.swift */,
+				C083AB2C212041450018DF30 /* Loader.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		C06C8B5B2121ED2F00B8B5C9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C083AAF821203DC10018DF30 /* CatalogListViewController.swift */,
+				C083AB1621203E2E0018DF30 /* CatalogDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C06C8B5C2121ED5000B8B5C9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C083AB282120411C0018DF30 /* ProductCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C06C8B5D2121ED6200B8B5C9 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C083AB1D21203EF60018DF30 /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		C083AAEA21203DC10018DF30 = {
 			isa = PBXGroup;
 			children = (
-				C083AB33212048230018DF30 /* Catalog.json */,
 				C083AAF521203DC10018DF30 /* Catalog */,
 				C083AB0A21203DC70018DF30 /* CatalogTests */,
-				C083AAF421203DC10018DF30 /* Products */,
-				D4F06367D23F25C0D26FFA16 /* Pods */,
-				9687F1713BE5D24F4CB7F731 /* Frameworks */,
+				C06C8B592121EC7600B8B5C9 /* Others */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +160,7 @@
 				C083AB0721203DC70018DF30 /* CatalogTests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C083AAF521203DC10018DF30 /* Catalog */ = {
@@ -137,6 +182,7 @@
 		C083AB0A21203DC70018DF30 /* CatalogTests */ = {
 			isa = PBXGroup;
 			children = (
+				C083AB33212048230018DF30 /* Catalog.json */,
 				C083AB0B21203DC70018DF30 /* CatalogListTests.swift */,
 				C083AB312120430F0018DF30 /* HttpClientTests.swift */,
 				C083AB1821203E690018DF30 /* CatalogDetailTests.swift */,
@@ -156,11 +202,10 @@
 		C083AB1B21203EA80018DF30 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C083AB1D21203EF60018DF30 /* Main.storyboard */,
-				C083AB2C212041450018DF30 /* Loader.swift */,
-				C083AB282120411C0018DF30 /* ProductCell.swift */,
-				C083AAF821203DC10018DF30 /* CatalogListViewController.swift */,
-				C083AB1621203E2E0018DF30 /* CatalogDetailViewController.swift */,
+				C06C8B5D2121ED6200B8B5C9 /* Storyboard */,
+				C06C8B5C2121ED5000B8B5C9 /* Cells */,
+				C06C8B5B2121ED2F00B8B5C9 /* ViewControllers */,
+				C06C8B5A2121ED1C00B8B5C9 /* CustomViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +244,7 @@
 				34CC988C56329C692CE09AD5 /* Pods-CatalogTests.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +412,7 @@
 				C083AB1721203E2E0018DF30 /* CatalogDetailViewController.swift in Sources */,
 				C083AB2521203F4B0018DF30 /* CatalogListViewModel.swift in Sources */,
 				C083AAF921203DC10018DF30 /* CatalogListViewController.swift in Sources */,
+				C06C8B5F2121ED9600B8B5C9 /* ImageSlider.swift in Sources */,
 				C083AB2221203F290018DF30 /* HttpClient.swift in Sources */,
 				C083AB2721203F710018DF30 /* Catalog.swift in Sources */,
 				C083AB292120411C0018DF30 /* ProductCell.swift in Sources */,
