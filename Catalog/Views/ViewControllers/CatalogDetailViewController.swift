@@ -27,7 +27,7 @@ class CatalogDetailViewController: UIViewController {
     
     func setData(){
         
-        if let productInfo = productInfo{
+        if let productInfo = productInfo {
             
             if let images = productInfo.images , let imageName = images[0].name {
                 let imageStr = "\(EndPoints.imageBaseUrl)\(imageName)"
@@ -35,7 +35,7 @@ class CatalogDetailViewController: UIViewController {
                 self.productImage.sd_setImage(with: URL(string: imageStr), placeholderImage: nil)
             }
             
-            if let name = productInfo.name{
+            if let name = productInfo.name {
                 self.productName.numberOfLines = 0
                 self.productName.sizeToFit()
                 self.productName.text = name
@@ -45,11 +45,11 @@ class CatalogDetailViewController: UIViewController {
                 self.productPrice.text = "$ \(price)"
             }
             
-            if let desc = productInfo.description{
+            if let desc = productInfo.description {
                 self.productDesc.text = desc
             }
             
-            if let measure = productInfo.measure, let quantity = measure.weightOrVol{
+            if let measure = productInfo.measure, let quantity = measure.weightOrVol {
                 self.productQuantity.text = quantity
             }
             

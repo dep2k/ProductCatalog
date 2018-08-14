@@ -15,7 +15,7 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
     var products:[Product] = [Product]()
     let catalogListVM: CatalogListViewModel = CatalogListViewModel(httpClient: HttpClient(session: SessionManager.instance.dataSession))
     
-    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         
@@ -28,7 +28,7 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
   
-    func searchProducts(){
+    func searchProducts() {
         
         self.view.showLoader()
         self.catalogListVM.searchProducts(searchUrl: EndPoints.searchProducts, onCompletion:  { (error, products) in
@@ -43,13 +43,13 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.products.count
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if (indexPath.row == self.products.count - 3 * 5 ){
+        if (indexPath.row == self.products.count - 3 * 5 ) {
             self.searchProducts()
         }
         
@@ -60,7 +60,7 @@ class CatalogListViewController: UIViewController, UICollectionViewDelegate, UIC
     }
     
     // MARK: Delegates
-    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedProduct = self.products[indexPath.row]
         let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "DetailVC") as! CatalogDetailViewController

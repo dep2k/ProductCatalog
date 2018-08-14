@@ -12,11 +12,11 @@ class HttpClient {
     
     private var urlSession: URLSession
     
-    init(session: URLSession){
+    init(session: URLSession) {
         self.urlSession = session
     }
     
-    public func getProducts(urlStr: String, completion:  @escaping (Error?,
+    public func getProducts(urlStr: String, onCompletion completion:  @escaping (Error?,
         Catalog?) -> ()) {
         
         let url = URL(string: urlStr)
